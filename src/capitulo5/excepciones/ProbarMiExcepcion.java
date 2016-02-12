@@ -13,10 +13,14 @@ public class ProbarMiExcepcion {
     public static void main(String[] args) throws ValorNoNegativoException {
         try{
         Cliente c=new Cliente();
-        c.setEdad(-19);
+        c.setEdad(17);
         }
-        catch (Exception ex){
+        catch (ValorNoNegativoException ex){
             System.out.println(ex.getMessage());            
+        }catch(MenorDeEdadException e){
+            System.out.println(e.getMessage()); 
+        }finally{
+            System.out.println("Este se lanza se quiera o no");
         }
     }
 }

@@ -18,16 +18,31 @@ public class MiPrimeraConexion {
         InputStreamReader isr=new InputStreamReader(input);
         BufferedReader reader=new BufferedReader(isr);
         int renglones=0;
+        boolean encontrado=false;
+        String temperaturas[]=new String[5];
+        String renglonActual=reader.readLine();
+        if(renglonActual.contains("Outside Te")){
+            encontrado=true;
+            System.out.println("Si existe el renglon");
+        }
         while(reader.readLine() != null){
             renglones++;
+            
             //if(reader.readLine().contains("summary_timestamp") || renglones==100){
                 //System.out.println(reader.readLine());
             }
-            String hola="<td width=170 class=summary_data>21.1 C<td>";
+           /* String hola="<td width=class summary_data>19.6 C<td>";
             int indice1= hola.indexOf("summary_data");
-            int indice2= hola.indexOf("</td>");
-            String nuevo=hola.substring(indice1,indice2);
-            System.out.println();
+            int indice2= hola.indexOf("<td>");
+            String nuevo=hola.substring(indice1+13,indice2);
+            System.out.println(nuevo);
+            
+            String hola2="<td colspan=6 class=summary_timestamp>Current Conditions as of 19:40 Monday, February 15, 2016</td>";
+            int indice3= hola2.indexOf("summary_timestamp");
+            int indice4= hola2.indexOf("</td>");
+            String nuevo2=hola2.substring(indice3+43,indice4);
+            System.out.println(nuevo2);
+                   */
         }
     
         //System.out.println("Numero de Renglones "+renglones);

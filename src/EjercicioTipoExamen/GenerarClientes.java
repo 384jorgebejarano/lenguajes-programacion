@@ -14,8 +14,12 @@ public class GenerarClientes{
    public static Clientes[] obtenerClientes(){
         Clientes clientes[]=new Clientes[3];
         clientes[0]=new Clientes("Ana","Lopez",20,20000, new Direccion("Mexico", 133, "5532384201", "nezayork"));
-        clientes[1]=new Clientes("Pedro","Perez",45,52000, new Direccion("av.europa", 15, "55188123842", "ecatepec"));        clientes[0]=new Clientes("Ana","Lopez",20,20000, new Direccion("Mexico", 133, "5532384201", "nezayork"));
+        clientes[1]=new Clientes("Pedro","Perez",45,52000, new Direccion("av.europa", 15, "55188123842", "ecatepec"));        
         clientes[2]=new Clientes("Ana","Lopez",20,20000, new Direccion("carlos hank gonzalez", 58, "5557569201", "las americas"));
+for(int i=0;i<clientes.length;i++){
+    System.out.println(clientes);
+}
+
 //ajustamos nombres
         
         /*clientes[0].setNombre("Ana");

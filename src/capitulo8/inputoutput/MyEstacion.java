@@ -48,7 +48,7 @@ public class MyEstacion extends javax.swing.JFrame {
 
         etiquetaTempActual.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/capitulo8/inputoutput/Lunatone.gif"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/capitulo8/inputoutput/Lunatone_XY_variocolor.gif"))); // NOI18N
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/capitulo8/inputoutput/Solrock.gif"))); // NOI18N
 

@@ -5,7 +5,7 @@
  */
 package capitulo11.collections;
 
-import java.util.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,6 +14,7 @@ import java.util.*;
 public class ProbarPregunta {
     public static void main(String[] args) {
         ArrayList<Pregunta> preguntas=GeneradorPreguntas.obtenerTodasLasPreguntas();
+        
         for(Pregunta p:preguntas){
             System.out.println("Pregunta: "+p.getTitulo());
             for(Opcion o:p.getOpciones()){

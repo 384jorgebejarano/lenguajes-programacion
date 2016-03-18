@@ -6,26 +6,25 @@
 package capitulo11.collections;
 
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 
 /**
  *
  * @author T-101
  */
-public class Cuestionario extends javax.swing.JFrame {
-
+public class TestBasico extends javax.swing.JFrame {
+    ArrayList<Pregunta> preguntas;
+    JRadioButton radios[]=new JRadioButton[4];
+    int numero=0;
     /**
      * Creates new form Cuestionario
      */
-    public Cuestionario() {      
+    public TestBasico() {      
+        preguntas=GeneradorPreguntas.obtenerTodasLasPreguntas();
         initComponents();
-          ArrayList<Pregunta> preguntas=GeneradorPreguntas.obtenerTodasLasPreguntas();
-        pregunta.setText(preguntas.get(0).getTitulo());
-        radio0.setText(preguntas.get(0).getOpciones().get(0).getTitulo());
-        radio1.setText(preguntas.get(0).getOpciones().get(1).getTitulo());
-        radio2.setText(preguntas.get(0).getOpciones().get(2).getTitulo());
-        radio3.setText(preguntas.get(0).getOpciones().get(3).getTitulo());
+        iniciarTodos();
        
-        
     }
 
     /**
@@ -66,8 +65,18 @@ public class Cuestionario extends javax.swing.JFrame {
         radio3.setText("jRadioButton4");
 
         jButton1.setText("Checar Respuesta");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Siguiente Pregunta");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -124,6 +133,18 @@ public class Cuestionario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        boolean respuesta= GeneradorPreguntas.checarRespuesta(preguntas.get(numero),radios);
+        JOptionPane.showMessageDialog(rootPane, "Respuesta: "+respuesta);
+     
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+numero++;
+iniciarTodos();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -141,20 +162,21 @@ public class Cuestionario extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cuestionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestBasico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cuestionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestBasico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cuestionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestBasico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cuestionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestBasico.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Cuestionario().setVisible(true);
+                new TestBasico().setVisible(true);
             }
         });
     }
@@ -170,4 +192,27 @@ public class Cuestionario extends javax.swing.JFrame {
     private javax.swing.JRadioButton radio2;
     private javax.swing.JRadioButton radio3;
     // End of variables declaration//GEN-END:variables
+
+    private void iniciarTodos() {
+        if(numero<preguntas.size()){
+        radios[0]=radio0;
+        radios[1]=radio1;
+        radios[2]=radio2;
+        radios[3]=radio3;
+       
+        
+        pregunta.setText(preguntas.get(numero).getTitulo());
+        radio0.setText(preguntas.get(numero).getOpciones().get(0).getTitulo());
+        radio1.setText(preguntas.get(numero).getOpciones().get(1).getTitulo());
+        radio2.setText(preguntas.get(numero).getOpciones().get(2).getTitulo());
+        radio3.setText(preguntas.get(numero).getOpciones().get(3).getTitulo());
+         
+        ArrayList<Pregunta> preguntas=GeneradorPreguntas.obtenerTodasLasPreguntas();
+        
+        radio0.setText(preguntas.get(numero).getOpciones().get(0).getTitulo());
+        radio1.setText(preguntas.get(numero).getOpciones().get(1).getTitulo());
+        radio2.setText(preguntas.get(numero).getOpciones().get(2).getTitulo());
+        radio3.setText(preguntas.get(numero).getOpciones().get(3).getTitulo());
+        }
+    }
 }
